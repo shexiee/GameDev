@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Rhythm Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Music Rhythm Game</h1>
+
+    <!-- Song & Difficulty Selection -->
+    <div id="selection-screen">
+        <h2>Select a Song</h2>
+        <select id="song-selection">
+            <option value="audio/song1.mp3">Song 1</option>
+            <option value="audio/song2.mp3">Song 2</option>
+            <option value="audio/song3.mp3">Song 3</option>
+        </select>
+
+        <h2>Select Difficulty</h2>
+        <select id="difficulty-selection">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+
+        <br><br>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" style="display: none;">
+        <p>Press Left, Down, Right, or Up Arrow keys when notes reach the hit area.</p>
+        <div id="game-container">
+            <div id="lane-1" class="lane"><div class="hit-area"></div></div>
+            <div id="lane-2" class="lane"><div class="hit-area"></div></div>
+            <div id="lane-3" class="lane"><div class="hit-area"></div></div>
+            <div id="lane-4" class="lane"><div class="hit-area"></div></div>
+        </div>
+
+        <p>Score: <span id="score">0</span></p>
+        <p id="message"></p>
+
+        <button onclick="restartGame()">
+            <img src="assets/reload.png" width="50" alt="Restart">
+        </button>
+
+        <audio id="bg-music"></audio>
+    </div>
+
+    <script src="MusicRhythm.js"></script>
+</body>
+</html>

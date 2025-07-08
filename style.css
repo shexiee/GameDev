@@ -1,0 +1,123 @@
+/* General Page Styling */
+body {
+    text-align: center;
+    background-color: #111;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Game Title */
+h1 {
+    font-size: 32px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 10px rgba(255, 204, 0, 0.8);
+}
+
+/* Selection Screen */
+#selection-screen {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Game Container */
+#game-container {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border: 2px solid white;
+    margin: auto;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Lane Styling */
+.lane {
+    position: relative;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Glowing Effect for Active Lanes */
+.lane::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    z-index: -1;
+}
+
+/* Hit Area */
+.hit-area {
+    position: absolute;
+    bottom: 20px;
+    width: 80px;
+    height: 15px;
+    background: limegreen;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+}
+
+/* Animated Falling Notes */
+.note {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.1s ease;
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.6));
+    animation: glowAnimation 1s infinite alternate;
+}
+
+/* Glowing Animation */
+@keyframes glowAnimation {
+    0% { filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.3)); }
+    100% { filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.9)); }
+}
+
+/* Score Display */
+#score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ffcc;
+    text-shadow: 0px 0px 10px rgba(0, 255, 204, 0.8);
+}
+
+/* Message */
+#message {
+    font-size: 20px;
+    margin-top: 10px;
+    color: red;
+    text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
+}
+
+/* Buttons */
+button {
+    background: none;
+    border: 2px solid white;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+}
+
+button:hover {
+    background: white;
+    color: black;
+}
