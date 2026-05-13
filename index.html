@@ -4,47 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Rhythm Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Music Rhythm Game</h1>
+    <div class="scanlines"></div>
 
-    <!-- Song & Difficulty Selection -->
+    <!-- Selection Screen -->
     <div id="selection-screen">
-        <h2>Select a Song</h2>
-        <select id="song-selection">
-            <option value="audio/song1.mp3">Song 1</option>
-            <option value="audio/song2.mp3">Song 2</option>
-            <option value="audio/song3.mp3">Song 3</option>
-        </select>
+        <div class="arcade-header">
+            <h1>★ RHYTHM GAME ★</h1>
+            <p class="hi-score-line">HI-SCORE &nbsp;<span id="high-score-selection">0</span></p>
+        </div>
 
-        <h2>Select Difficulty</h2>
-        <select id="difficulty-selection">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select>
+        <div class="arcade-panel">
+            <label class="arcade-label">SELECT TRACK</label>
+            <div class="select-wrap">
+                <select id="song-selection" class="arcade-select">
+                    <option value="audio/song1.mp3">SONG 1</option>
+                    <option value="audio/song2.mp3">SONG 2</option>
+                    <option value="audio/song3.mp3">SONG 3</option>
+                </select>
+            </div>
 
-        <br><br>
-        <button onclick="startGame()">Start Game</button>
+            <label class="arcade-label">DIFFICULTY</label>
+            <div class="select-wrap">
+                <select id="difficulty-selection" class="arcade-select">
+                    <option value="easy">EASY</option>
+                    <option value="medium">MEDIUM</option>
+                    <option value="hard">HARD</option>
+                </select>
+            </div>
+        </div>
+
+        <button onclick="startGame()" class="start-btn">▶ PRESS START ◀</button>
     </div>
 
     <!-- Game Screen -->
     <div id="game-screen" style="display: none;">
-        <p>Press Left, Down, Right, or Up Arrow keys when notes reach the hit area.</p>
-        <div id="game-container">
-            <div id="lane-1" class="lane"><div class="hit-area"></div></div>
-            <div id="lane-2" class="lane"><div class="hit-area"></div></div>
-            <div id="lane-3" class="lane"><div class="hit-area"></div></div>
-            <div id="lane-4" class="lane"><div class="hit-area"></div></div>
+        <div id="stats-bar">
+            <div id="health-wrap">
+                <span class="stat-label">HP</span>
+                <div id="health-bar"><div id="health-bar-fill"></div></div>
+            </div>
+            <div id="combo"></div>
+            <div class="score-wrap">
+                <span class="stat-label">SCR</span>
+                <span id="score">0</span>
+            </div>
         </div>
 
-        <p>Score: <span id="score">0</span></p>
-        <p id="message"></p>
+        <div id="game-container">
+            <div id="lane-1" class="lane lane-cyan">
+                <div class="hit-area"><span class="key-label">←</span></div>
+            </div>
+            <div id="lane-2" class="lane lane-yellow">
+                <div class="hit-area"><span class="key-label">↓</span></div>
+            </div>
+            <div id="lane-3" class="lane lane-magenta">
+                <div class="hit-area"><span class="key-label">→</span></div>
+            </div>
+            <div id="lane-4" class="lane lane-green">
+                <div class="hit-area"><span class="key-label">↑</span></div>
+            </div>
+        </div>
 
-        <button onclick="restartGame()">
-            <img src="assets/reload.png" width="50" alt="Restart">
-        </button>
+        <div id="bottom-bar">
+            <span>BEST: <span id="high-score-display">0</span></span>
+            <button onclick="restartGame()" class="restart-btn">↺ RETRY</button>
+        </div>
+
+        <div id="message"></div>
 
         <audio id="bg-music"></audio>
     </div>
